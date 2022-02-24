@@ -32,6 +32,7 @@ app.post('/api/student', (req, res)=>{
 
 app.use(rollbar.errorHandler())
 
+app.use(express.json())
 
 
 
