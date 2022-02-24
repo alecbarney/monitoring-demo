@@ -1,11 +1,26 @@
 const express = require('express')
+const { appendFileSync } = require('fs')
 const path = require('path')
 
 const app = express()
+let student = []
 
 app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, '../public/index.html'))
 })
+app.post('/api/student', (req, res)=>{
+    let {name} = req.body
+    name = name.trim()
+
+    students.push(name)
+    
+    rollbar.log('student was added successfully', {author: 'alec', type: 'manual'})
+
+    res.status(200).send(students)
+})
+
+app.use(rollbar.errorHandler())
+
 
 var Rollbar = require('rollbar')
 var rollbar = new Rollbar({
