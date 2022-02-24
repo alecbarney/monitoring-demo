@@ -4,7 +4,7 @@ const path = require('path')
 
 const app = express()
 app.use(express.json())
-let student = []
+let students = []
 
 app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, '../public/index.html'))
